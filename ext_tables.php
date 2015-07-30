@@ -23,8 +23,8 @@ if (TYPO3_MODE === 'BE') {
 		)
 	);
 
-	// Initiate IconRegistry
-	$iconRegistry = \TYPO3\CMS\Core\Imaging\IconRegistry::getInstance();
+	// Initiate
+	$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 
 	// Register SVG
 	$iconRegistry->registerIcon(
