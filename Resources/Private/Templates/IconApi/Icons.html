@@ -7,7 +7,17 @@
 </f:section>
 
 <f:section name="content">
-
+<style>
+	div.icon-container {
+		border: 1px solid transparent;
+		margin-bottom: 20px;
+	}
+	div.icon-container span.icon-container-icon,
+	div.icon-container span.icon-container-label {
+		display: block;
+		text-align: center;
+	}
+</style>
 <table class="table table-bordered">
 	<tr>
 		<th></th>
@@ -63,21 +73,19 @@
 		<td><core:icon identifier="provider-fontawesome" size="default" overlay="overlay-read-only" /></td>
 		<td><core:icon identifier="provider-fontawesome" size="large" overlay="overlay-read-only" /></td>
 	</tr>
-	<tr>
-		<th colspan="4" style="background-color: #eee;">All registerd icons</th>
-	</tr>
-	<f:for each="{allIcons}" as="icon">
-	<tr>
-		<th>{icon}</th>
-		<td><core:icon identifier="{icon}" size="small" /></td>
-		<td><core:icon identifier="{icon}" size="default" /></td>
-		<td><core:icon identifier="{icon}" size="large" /></td>
-	</tr>
-	</f:for>
 </table>
 
 <hr>
 
+<h2>All icons</h2>
+<div class="row">
+	<f:for each="{allIcons}" as="icon">
+		<div class="col-md-2 icon-container" data-icon-identifier="{icon}">
+			<span class="icon-container-icon"><core:icon identifier="{icon}" size="large" /></span>
+			<span class="icon-container-label">{icon}</span>
+		</div>
+	</f:for>
+</div>
 
 
 <h2>Buttons</h2>
