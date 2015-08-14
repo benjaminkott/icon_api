@@ -16,10 +16,16 @@
 		<th>large</th>
 	</tr>
 	<tr>
+		<th colspan="4" style="background-color: #eee;">Default Icon</th>
+	</tr>
+	<tr>
 		<th>not registered icon</th>
 		<td><core:icon identifier="default-not-found" size="small" /></td>
 		<td><core:icon identifier="default-not-found" size="default" /></td>
 		<td><core:icon identifier="default-not-found" size="large" /></td>
+	</tr>
+	<tr>
+		<th colspan="4" style="background-color: #eee;">Provider Examples</th>
 	</tr>
 	<tr>
 		<th>provider-svg</th>
@@ -57,9 +63,18 @@
 		<td><core:icon identifier="provider-fontawesome" size="default" overlay="overlay-read-only" /></td>
 		<td><core:icon identifier="provider-fontawesome" size="large" overlay="overlay-read-only" /></td>
 	</tr>
+	<tr>
+		<th colspan="4" style="background-color: #eee;">All registerd icons</th>
+	</tr>
+	<f:for each="{allIcons}" as="icon">
+	<tr>
+		<th>{icon}</th>
+		<td><core:icon identifier="{icon}" size="small" /></td>
+		<td><core:icon identifier="{icon}" size="default" /></td>
+		<td><core:icon identifier="{icon}" size="large" /></td>
+	</tr>
+	</f:for>
 </table>
-
-
 
 <hr>
 

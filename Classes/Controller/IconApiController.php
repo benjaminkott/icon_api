@@ -14,6 +14,8 @@ namespace BK2K\IconApi\Controller;
  * The TYPO3 project - inspiring people to share!
  */
 
+use TYPO3\CMS\Core\Imaging\IconRegistry;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -25,7 +27,8 @@ class IconApiController extends ActionController {
 	 * Icons
 	 */
 	public function iconsAction() {
-
+		$iconRegistry = GeneralUtility::makeInstance(IconRegistry::class);
+		$this->view->assign('allIcons', $iconRegistry->getAllRegisteredIconIdentifiers());
 	}
 
 }
