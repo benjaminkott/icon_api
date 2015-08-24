@@ -1,5 +1,5 @@
 <?php
-namespace BK2K\IconApi\Controller;
+namespace BK2K\IconApi\ViewHelpers;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -16,26 +16,21 @@ namespace BK2K\IconApi\Controller;
 
 use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * Backend module for Styleguide
  */
-class IconApiController extends ActionController {
+class IconStatusViewHelper extends AbstractViewHelper {
 
 	/**
-	 * Icons
+	 * @param string $identifier
+	 *
+	 * @return string
 	 */
-	public function iconsAction() {
+	public function render($identifier = '') {
 		$iconRegistry = GeneralUtility::makeInstance(IconRegistry::class);
-		$this->view->assign('allIcons', $iconRegistry->getAllRegisteredIconIdentifiers());
-
-		$icons = $GLOBALS['TBE_STYLES']['spriteIconApi']['iconsAvailable'];
-		$icons = array_filter($icons, function($var) {
-			$firstPart = array_shift(GeneralUtility::trimExplode('-', $var));
-			return in_array($firstPart, ['actions', 'apps', 'mimetypes', 'status']);
-		});
-		$this->view->assign('iconIdentifier', $icons);
+		return ($iconRegistry->isRegistered($identifier)) ? 'registered' : 'missing';
 	}
 
 }

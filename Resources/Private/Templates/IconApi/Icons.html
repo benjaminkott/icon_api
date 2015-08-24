@@ -1,4 +1,5 @@
 {namespace core = TYPO3\CMS\Core\ViewHelpers}
+{namespace ia = BK2K\IconApi\ViewHelpers}
 
 <f:layout name="Default" />
 
@@ -18,6 +19,32 @@
 		text-align: center;
 	}
 </style>
+<script>
+	TYPO3.jQuery(function() {
+		TYPO3.jQuery('.t3js-filter').click(function(e) {
+			e.preventDefault();
+			TYPO3.jQuery('tr[data-icon="registered"]').toggle();
+		});
+	});
+</script>
+<p><a href="#" class="btn btn-default t3js-filter">Show/Hide only missing icons</a></p>
+<table class="table table-bordered">
+	<tr>
+		<th>Old</th>
+		<th>New</th>
+		<th>Identifier</th>
+	</tr>
+	<f:for each="{iconIdentifier}" as="iconId">
+		<tr data-icon="{ia:iconStatus(identifier: '{iconId}')}">
+			<td><ia:oldIcon identifier="{iconId}" /></td>
+			<td><core:icon identifier="{iconId}" size="small" /></td>
+			<td>{iconId}</td>
+		</tr>
+	</f:for>
+</table>
+
+		<hr>
+
 <table class="table table-bordered">
 	<tr>
 		<th></th>
