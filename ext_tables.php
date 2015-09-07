@@ -31,7 +31,7 @@ if (TYPO3_MODE === 'BE') {
 		'provider-svg',
 		\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
 		array(
-			'source' => 'EXT:icon_api/Resources/Public/Icons/provider_svg_icon.svg'
+			'source' => 'EXT:icon_api/Resources/Public/Icons/provider_svg_icon.svg',
 		)
 	);
 
@@ -40,7 +40,7 @@ if (TYPO3_MODE === 'BE') {
 		'provider-bitmap',
 		\TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
 		array(
-			'source' => 'EXT:icon_api/Resources/Public/Icons/provider_bitmap_icon.png'
+			'source' => 'EXT:icon_api/Resources/Public/Icons/provider_bitmap_icon.png',
 		)
 	);
 
@@ -49,7 +49,17 @@ if (TYPO3_MODE === 'BE') {
 		'provider-fontawesome',
 		\TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
 		array(
-			'name' => 'desktop'
+			'name' => 'desktop',
+		)
+	);
+
+	// Register FontAwesome
+	$iconRegistry->registerIcon(
+		'provider-fontawesome-spinner',
+		\TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
+		array(
+			'name' => 'spinner',
+			'spinning' => TRUE
 		)
 	);
 
