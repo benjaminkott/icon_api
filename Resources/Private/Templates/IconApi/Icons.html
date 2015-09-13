@@ -42,6 +42,7 @@
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active"><a href="#iconprovider" aria-controls="iconprovider" role="tab" data-toggle="tab">IconProvider</a></li>
 			<li role="presentation"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">All Icons</a></li>
+            <li role="presentation"><a href="#overlays" aria-controls="overlays" role="tab" data-toggle="tab">All Overlays</a></li>
 			<li role="presentation"><a href="#examples" aria-controls="examples" role="tab" data-toggle="tab">Examples</a></li>
 			<li role="presentation"><a href="#oldnew" aria-controls="oldnew" role="tab" data-toggle="tab">Old and new</a></li>
 		</ul>
@@ -76,9 +77,9 @@
 					</tr>
 					<tr>
 						<th>provider-svg with overlay</th>
-						<td><core:icon identifier="provider-svg" size="small" overlay="overlay-read-only" /></td>
-						<td><core:icon identifier="provider-svg" size="default" overlay="overlay-read-only" /></td>
-						<td><core:icon identifier="provider-svg" size="large" overlay="overlay-read-only" /></td>
+						<td><core:icon identifier="provider-svg" size="small" overlay="overlay-readonly" /></td>
+						<td><core:icon identifier="provider-svg" size="default" overlay="overlay-readonly" /></td>
+						<td><core:icon identifier="provider-svg" size="large" overlay="overlay-readonly" /></td>
 					</tr>
 					<tr>
 						<th>provider-bitmap</th>
@@ -88,9 +89,9 @@
 					</tr>
 					<tr>
 						<th>provider-bitmap with overlay</th>
-						<td><core:icon identifier="provider-bitmap" size="small" overlay="overlay-read-only" /></td>
-						<td><core:icon identifier="provider-bitmap" size="default" overlay="overlay-read-only" /></td>
-						<td><core:icon identifier="provider-bitmap" size="large" overlay="overlay-read-only" /></td>
+						<td><core:icon identifier="provider-bitmap" size="small" overlay="overlay-readonly" /></td>
+						<td><core:icon identifier="provider-bitmap" size="default" overlay="overlay-readonly" /></td>
+						<td><core:icon identifier="provider-bitmap" size="large" overlay="overlay-readonly" /></td>
 					</tr>
 					<tr>
 						<th>provider-fontawesome</th>
@@ -106,13 +107,13 @@
 					</tr>
 					<tr>
 						<th>provider-fontawesome with overlay</th>
-						<td><core:icon identifier="provider-fontawesome" size="small" overlay="overlay-read-only" /></td>
-						<td><core:icon identifier="provider-fontawesome" size="default" overlay="overlay-read-only" /></td>
-						<td><core:icon identifier="provider-fontawesome" size="large" overlay="overlay-read-only" /></td>
+						<td><core:icon identifier="provider-fontawesome" size="small" overlay="overlay-readonly" /></td>
+						<td><core:icon identifier="provider-fontawesome" size="default" overlay="overlay-readonly" /></td>
+						<td><core:icon identifier="provider-fontawesome" size="large" overlay="overlay-readonly" /></td>
 					</tr>
 				</table>
 			</div>
-			<div role="tabpanel" class="tab-pane" id="all">
+            <div role="tabpanel" class="tab-pane" id="all">
 				<div class="row">
 					<form style="margin-top: 20px;">
 						<div class="form-group col-md-12">
@@ -131,6 +132,24 @@
 						</div>
 					</f:for>
 				</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="overlays">
+                <table class="table table-bordered">
+					<tr>
+						<th></th>
+						<th>small</th>
+						<th>default</th>
+						<th>large</th>
+					</tr>
+					<f:for each="{overlays}" as="overlay">
+                        <tr>
+                            <th>{overlay}</th>
+                            <td><core:icon identifier="apps-pagetree-page-default" size="small" overlay="{overlay}" /></td>
+                            <td><core:icon identifier="apps-pagetree-page-default" size="default" overlay="{overlay}" /></td>
+                            <td><core:icon identifier="apps-pagetree-page-default" size="large" overlay="{overlay}" /></td>
+                        </tr>
+					</f:for>
+                </table>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="examples">
 				<h2>Buttons</h2>

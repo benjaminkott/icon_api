@@ -28,7 +28,17 @@ class IconApiController extends ActionController {
 	 */
 	public function iconsAction() {
 		$iconRegistry = GeneralUtility::makeInstance(IconRegistry::class);
-		$this->view->assign('allIcons', $iconRegistry->getAllRegisteredIconIdentifiers());
+
+        $allIcons = $iconRegistry->getAllRegisteredIconIdentifiers();
+        $this->view->assign('allIcons', $allIcons);
+
+        $overlays = array();
+        foreach($allIcons as $key){
+            if(substr($key, 0, strlen('overlay')) === 'overlay'){
+                $overlays[] = $key;
+            }
+        }
+		$this->view->assign('overlays', $overlays);
 
 		$icons = $GLOBALS['TBE_STYLES']['spriteIconApi']['iconsAvailable'];
 		$icons = array_filter($icons, function($var) {
