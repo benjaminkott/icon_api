@@ -13,13 +13,12 @@
   "homepage": "https://github.com/benjaminkott/icon_api",
   "license": "GPL-2.0+",
   "keywords": [
-    "TYPO3 CMS",
+    "typo3",
     "icon api"
   ],
   "support": {
-    "issues": "https://github.com/benjaminkott/icon_api"
+    "issues": "https://github.com/benjaminkott/icon_api/issues"
   },
-  "version": "1.0.0",
   "autoload": {
     "psr-4": {
       "BK2K\\IconApi\\": "Classes/"
